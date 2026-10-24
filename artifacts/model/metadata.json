@@ -1,0 +1,49 @@
+{
+  "model_type": "RandomForestClassifier",
+  "features": [
+    "battery_power",
+    "blue",
+    "clock_speed",
+    "dual_sim",
+    "fc",
+    "four_g",
+    "int_memory",
+    "m_dep",
+    "mobile_wt",
+    "n_cores",
+    "pc",
+    "px_height",
+    "px_width",
+    "ram",
+    "sc_h",
+    "sc_w",
+    "talk_time",
+    "three_g",
+    "touch_screen",
+    "wifi"
+  ],
+  "target_column": "price_range",
+  "target_classes": {
+    "0": "Low Cost",
+    "1": "Medium Cost",
+    "2": "High Cost",
+    "3": "Very High Cost"
+  },
+  "hyperparameters": {
+    "n_estimators": 150,
+    "max_depth": 15,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "random_state": 42
+  },
+  "metrics": {
+    "train_accuracy": 1.0,
+    "train_f1_macro": 1.0,
+    "train_precision_macro": 1.0,
+    "train_recall_macro": 1.0,
+    "validation_accuracy": 0.87,
+    "validation_f1_macro": 0.8694605067541132,
+    "validation_precision_macro": 0.8691794827979038,
+    "validation_recall_macro": 0.8699999999999999
+  }
+}

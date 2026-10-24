@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#070a14"/>
+    </linearGradient>
+    <linearGradient id="s3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#831843"/>
+      <stop offset="100%" stop-color="#9d174d"/>
+    </linearGradient>
+    <linearGradient id="regGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="serveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="monGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9a3412"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow-pink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f472b6"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f97316"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="660" fill="url(#bgGrad)"/>
+  <rect x="15" y="15" width="1170" height="630" rx="12" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Title Banner -->
+  <text x="40" y="55" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="700">AWS SageMaker End-to-End MLOps Pipeline &amp; Production Serving</text>
+  <text x="40" y="80" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Automated ProcessingStep, Distributed Training, Model Evaluation, Condition Registry, Real-Time Endpoints, and Drift Monitoring</text>
+
+  <!-- Tier 1: S3 Data & Lakehouse Store -->
+  <rect x="40" y="120" width="210" height="480" rx="10" fill="url(#s3Grad)" stroke="#334155" stroke-width="1.5"/>
+  <text x="55" y="155" fill="#38bdf8" font-family="sans-serif" font-size="14" font-weight="700">1. STORAGE &amp; S3 LAKE</text>
+
+  <rect x="55" y="175" width="180" height="85" rx="8" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+  <text x="68" y="200" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">Raw Data Tier</text>
+  <text x="68" y="218" fill="#94a3b8" font-family="sans-serif" font-size="11">s3://bucket/data/raw/</text>
+  <text x="68" y="234" fill="#38bdf8" font-family="sans-serif" font-size="10">2,000 mobile specs</text>
+  <text x="68" y="248" fill="#10b981" font-family="sans-serif" font-size="10">21 hardware features</text>
+
+  <rect x="55" y="275" width="180" height="85" rx="8" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+  <text x="68" y="300" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">Processed Splits</text>
+  <text x="68" y="318" fill="#94a3b8" font-family="sans-serif" font-size="11">s3://bucket/processed/</text>
+  <text x="68" y="334" fill="#a7f3d0" font-family="sans-serif" font-size="10">Train (80%) / Val (20%)</text>
+  <text x="68" y="348" fill="#38bdf8" font-family="sans-serif" font-size="10">StandardScaler baseline</text>
+
+  <rect x="55" y="375" width="180" height="85" rx="8" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+  <text x="68" y="400" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">Model Artifacts</text>
+  <text x="68" y="418" fill="#94a3b8" font-family="sans-serif" font-size="11">s3://bucket/models/</text>
+  <text x="68" y="434" fill="#c084fc" font-family="sans-serif" font-size="10">model.tar.gz</text>
+  <text x="68" y="448" fill="#10b981" font-family="sans-serif" font-size="10">KMS Server-Side Encrypt</text>
+
+  <rect x="55" y="475" width="180" height="105" rx="8" fill="#0f172a" stroke="#475569" stroke-width="1"/>
+  <text x="68" y="500" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">Data Capture Tier</text>
+  <text x="68" y="518" fill="#94a3b8" font-family="sans-serif" font-size="11">s3://bucket/datacapture/</text>
+  <text x="68" y="534" fill="#f59e0b" font-family="sans-serif" font-size="10">Live inference streams</text>
+  <text x="68" y="548" fill="#94a3b8" font-family="sans-serif" font-size="10">JSON Lines payload logs</text>
+  <text x="68" y="564" fill="#38bdf8" font-family="sans-serif" font-size="10">Model Monitor sink</text>
+
+  <!-- Tier 2: SageMaker Pipelines DAG -->
+  <rect x="275" y="120" width="270" height="480" rx="10" fill="url(#pipeGrad)" stroke="#be185d" stroke-width="1.5"/>
+  <text x="295" y="155" fill="#fbcfe8" font-family="sans-serif" font-size="14" font-weight="700">2. SAGEMAKER PIPELINE DAG</text>
+
+  <rect x="290" y="175" width="240" height="85" rx="8" fill="#500724" stroke="#f472b6" stroke-width="1"/>
+  <text x="305" y="200" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">ProcessingStep (SKLearn)</text>
+  <text x="305" y="218" fill="#fbcfe8" font-family="sans-serif" font-size="11">Clean, impute &amp; scale features</text>
+  <text x="305" y="234" fill="#94a3b8" font-family="sans-serif" font-size="10">Generates train/val/test splits</text>
+  <text x="305" y="248" fill="#10b981" font-family="sans-serif" font-size="10">ml.m5.xlarge managed runner</text>
+
+  <rect x="290" y="275" width="240" height="85" rx="8" fill="#500724" stroke="#f472b6" stroke-width="1"/>
+  <text x="305" y="300" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">TrainingStep (SKLearn)</text>
+  <text x="305" y="318" fill="#fbcfe8" font-family="sans-serif" font-size="11">RandomForestClassifier</text>
+  <text x="305" y="334" fill="#94a3b8" font-family="sans-serif" font-size="10">n_estimators=100, max_depth=15</text>
+  <text x="305" y="348" fill="#10b981" font-family="sans-serif" font-size="10">Output: model.tar.gz to S3</text>
+
+  <rect x="290" y="375" width="240" height="85" rx="8" fill="#500724" stroke="#f472b6" stroke-width="1"/>
+  <text x="305" y="400" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">EvaluationStep (Metrics)</text>
+  <text x="305" y="418" fill="#fbcfe8" font-family="sans-serif" font-size="11">Evaluates test set holdout</text>
+  <text x="305" y="434" fill="#94a3b8" font-family="sans-serif" font-size="10">Emits evaluation.json</text>
+  <text x="305" y="448" fill="#a7f3d0" font-family="sans-serif" font-size="10">Accuracy, F1-macro, Conf-Matrix</text>
+
+  <rect x="290" y="475" width="240" height="105" rx="8" fill="#500724" stroke="#f472b6" stroke-width="1"/>
+  <text x="305" y="500" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">ConditionStep (Quality Gate)</text>
+  <text x="305" y="518" fill="#fbcfe8" font-family="sans-serif" font-size="11">ConditionGreaterThanOrEqualTo</text>
+  <text x="305" y="534" fill="#ef4444" font-family="sans-serif" font-size="10">Threshold: Accuracy &gt;= 0.85</text>
+  <text x="305" y="550" fill="#10b981" font-family="sans-serif" font-size="10">Pass: Auto-register model</text>
+  <text x="305" y="564" fill="#ef4444" font-family="sans-serif" font-size="10">Fail: Pipeline terminates cleanly</text>
+
+  <!-- Tier 3: Model Registry & Governance -->
+  <rect x="570" y="120" width="250" height="480" rx="10" fill="url(#regGrad)" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="590" y="155" fill="#bfdbfe" font-family="sans-serif" font-size="14" font-weight="700">3. MODEL REGISTRY</text>
+
+  <rect x="585" y="175" width="220" height="90" rx="8" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+  <text x="600" y="200" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">Model Package Group</text>
+  <text x="600" y="218" fill="#bfdbfe" font-family="sans-serif" font-size="11">MobilePriceClassificationGroup</text>
+  <text x="600" y="234" fill="#94a3b8" font-family="sans-serif" font-size="10">Semantic versioned packages</text>
+  <text x="600" y="248" fill="#10b981" font-family="sans-serif" font-size="10">ApprovalStatus: Pending/Approved</text>
+
+  <rect x="585" y="280" width="220" height="90" rx="8" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+  <text x="600" y="305" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">Lineage &amp; Metadata</text>
+  <text x="600" y="325" fill="#bfdbfe" font-family="sans-serif" font-size="11">Exact Git commit + S3 hashes</text>
+  <text x="600" y="343" fill="#94a3b8" font-family="sans-serif" font-size="10">Container image URI &amp; digest</text>
+  <text x="600" y="359" fill="#a7f3d0" font-family="sans-serif" font-size="10">Audit compliance traceability</text>
+
+  <rect x="585" y="385" width="220" height="95" rx="8" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+  <text x="600" y="410" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">CI/CD Webhook / Approval</text>
+  <text x="600" y="430" fill="#bfdbfe" font-family="sans-serif" font-size="11">EventBridge model approved</text>
+  <text x="600" y="448" fill="#94a3b8" font-family="sans-serif" font-size="10">Triggers blue/green deploy</text>
+  <text x="600" y="466" fill="#10b981" font-family="sans-serif" font-size="10">Automated canary traffic shift</text>
+
+  <rect x="585" y="495" width="220" height="85" rx="8" fill="#172554" stroke="#3b82f6" stroke-width="1"/>
+  <text x="600" y="520" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">Zero-Cost Teardown</text>
+  <text x="600" y="540" fill="#bfdbfe" font-family="sans-serif" font-size="11">./clear.sh deletes endpoint</text>
+  <text x="600" y="558" fill="#10b981" font-family="sans-serif" font-size="10">$0.00 idle AWS compute</text>
+
+  <!-- Tier 4: Serving & Inference Runtime -->
+  <rect x="845" y="120" width="315" height="480" rx="10" fill="url(#serveGrad)" stroke="#059669" stroke-width="1.5"/>
+  <text x="865" y="155" fill="#a7f3d0" font-family="sans-serif" font-size="14" font-weight="700">4. SERVING &amp; OBSERVABILITY</text>
+
+  <rect x="860" y="175" width="285" height="90" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="875" y="200" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">SageMaker Real-Time Endpoint</text>
+  <text x="875" y="218" fill="#a7f3d0" font-family="sans-serif" font-size="11">Production Managed Endpoint</text>
+  <text x="875" y="234" fill="#94a3b8" font-family="sans-serif" font-size="10">Auto-scaling instance group</text>
+  <text x="875" y="248" fill="#10b981" font-family="sans-serif" font-size="10">DataCapture: 100% payload sampling</text>
+
+  <rect x="860" y="280" width="285" height="90" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="875" y="305" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">Local FastAPI Microservice (:8000)</text>
+  <text x="875" y="325" fill="#a7f3d0" font-family="sans-serif" font-size="11">Pydantic Schema Validation</text>
+  <text x="875" y="343" fill="#94a3b8" font-family="sans-serif" font-size="10">GET /health, POST /predict, /docs</text>
+  <text x="875" y="359" fill="#38bdf8" font-family="sans-serif" font-size="10">4 Price Tiers (Low to Very High)</text>
+
+  <rect x="860" y="385" width="285" height="95" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="875" y="410" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">SageMaker Model Monitor</text>
+  <text x="875" y="430" fill="#a7f3d0" font-family="sans-serif" font-size="11">Baseline vs Live Feature Drift</text>
+  <text x="875" y="448" fill="#94a3b8" font-family="sans-serif" font-size="10">Hourly Scheduled Drift Audit</text>
+  <text x="875" y="466" fill="#ef4444" font-family="sans-serif" font-size="10">CloudWatch Alarm on Violation</text>
+
+  <rect x="860" y="495" width="285" height="85" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="875" y="520" fill="#f1f5f9" font-family="sans-serif" font-size="12" font-weight="600">CloudWatch AI Telemetry</text>
+  <text x="875" y="540" fill="#a7f3d0" font-family="sans-serif" font-size="11">Invocation latency (p95 &lt; 25ms)</text>
+  <text x="875" y="558" fill="#10b981" font-family="sans-serif" font-size="10">Error rates, 4xx/5xx alarms</text>
+
+  <!-- Connective Arrows -->
+  <path d="M 250 215 L 290 215" stroke="#38bdf8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 530 318 L 585 318" stroke="#f472b6" stroke-width="2" fill="none" marker-end="url(#arrow-pink)"/>
+  <path d="M 805 220 L 860 220" stroke="#38bdf8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 860 260 L 235 500" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#arrow-orange)"/>
+  <path d="M 235 530 L 860 430" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#arrow-orange)"/>
+
+</svg>

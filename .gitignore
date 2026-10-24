@@ -34,10 +34,10 @@ ENV/
 .env
 
 # Model artifacts and local cache
-artifacts/
-*.joblib
+artifacts/*
+!artifacts/model/
+!artifacts/model/*
 *.tar.gz
-model/
 catboost_info/
 
 # SageMaker local simulation outputs

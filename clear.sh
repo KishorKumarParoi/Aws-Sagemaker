@@ -23,4 +23,4 @@ for port in 8000; do
     fi
 done
 
-echo "Platform torn down successfully. $0.00 active compute."
+echo "Platform torn down successfully. \$0.00 active compute."

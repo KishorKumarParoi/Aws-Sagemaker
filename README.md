@@ -6,24 +6,34 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688.svg)](https://fastapi.tiangolo.com)
 [![Pytest](https://img.shields.io/badge/Pytest-18%20Passed-brightgreen.svg)](https://pytest.org)
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF.svg)](.github/workflows/sagemaker_ci.yaml)
+[![Architecture: Blueprint](https://img.shields.io/badge/Architecture-Specification-8A2BE2?logo=diagramsdotnet&logoColor=white)](ARCHITECTURE.md)
+[![Workflow: SVG Flow](https://img.shields.io/badge/Workflow-Interactive_SVG-00C7B7?logo=vectorlogozone&logoColor=white)](docs/images/01_architecture_flow.svg)
 
-An enterprise-grade, production-ready MLOps project demonstrating the full Machine Learning lifecycle on **Amazon Web Services (AWS) SageMaker**. Built following cloud architectural best practices, this repository showcases automated data preprocessing, managed Spot training, model evaluation gating, Model Registry governance, real-time/serverless endpoint hosting with S3 data capture, and offline local simulation.
+An enterprise-grade, production-ready MLOps project demonstrating the full Machine Learning lifecycle on **Amazon Web Services (AWS) SageMaker**. Built following cloud architectural best practices, this repository showcases automated data preprocessing, managed Spot training, model evaluation gating, Model Registry governance, real-time/serverless endpoint hosting with S3 data capture, and offline local simulation. Full architecture blueprint available in [ARCHITECTURE.md](ARCHITECTURE.md) and interactive vector flow in [01_architecture_flow.svg](docs/images/01_architecture_flow.svg).
 
 ---
 
-## 🌟 Key Highlights & Engineering Features
+## ⚡ Zero-Touch 1-Command Autonomous EC2 & Cloud Deployment
 
-- **Automated SageMaker Pipeline (DAG)**: Fully orchestrated workflow using SageMaker Python SDK (`ProcessingStep` $\to$ `TrainingStep` $\to$ `ProcessingStep` $\to$ `ConditionStep` $\to$ `ModelStep`).
-- **Cost Optimization (~70% Savings)**: Configured with **AWS Managed Spot Training** and automatic timeout guards.
-- **Automated Quality Gating**: `ConditionStep` evaluates holdout test accuracy ($\ge 85\%$) before promoting models to the **SageMaker Model Registry**.
-- **Official SageMaker Inference Contract**: Production serving handler implementing `model_fn`, `input_fn`, `predict_fn`, and `output_fn` with multi-format support (JSON & CSV) and class confidence probabilities.
-- **Model Monitoring & Drift Detection**: Configured with `DataCaptureConfig` to log 100% of live inference payloads to S3 for baseline drift analysis.
-- **Hybrid Local / Cloud Workflow**: Run the entire pipeline offline via `--local-simulation` or serve models locally with **FastAPI** (`http://localhost:8000/docs`).
-- **Production Testing Suite**: 18 automated unit and integration tests passing in under 2 seconds.
+Launch the complete SageMaker MLOps Serving stack directly on **any fresh, bare EC2 instance (Ubuntu, Debian, Amazon Linux 2023) or cloud VM** in a single command. **No pre-installation of Git, Docker, or Python is required**:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/KishorKumarParoi/Aws-Sagemaker/main/bootstrap.sh | bash
+```
+
+### 🎯 Fast Execution Modes
+
+| Deployment Mode | Command | Footprint |
+| :--- | :--- | :--- |
+| **Standard Containerized Stack** | `curl -fsSL https://raw.githubusercontent.com/KishorKumarParoi/Aws-Sagemaker/main/bootstrap.sh \| bash` | Docker Compose (`:8000`), Swagger UI (`/docs`) |
+| **Lightweight Native Python (<15s)** | `curl -fsSL https://raw.githubusercontent.com/KishorKumarParoi/Aws-Sagemaker/main/bootstrap.sh \| bash -s -- --standalone` | Minimal bare runtime (< 150MB RAM, zero Docker dependency) |
+| **Zero-Cost Instant Teardown ($0.00)** | `./clear.sh` | Purges all containers, background processes, and ports |
 
 ---
 
 ## 📐 System Architecture
+
+![AWS SageMaker Architecture Flow](docs/images/01_architecture_flow.svg)
 
 ```mermaid
 flowchart LR
