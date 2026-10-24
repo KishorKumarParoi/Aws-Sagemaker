@@ -240,3 +240,22 @@ python src/deployment/cleanup.py --endpoint-name your-endpoint-name
 - **[Architecture Deep Dive](docs/ARCHITECTURE.md)**: Container filesystem contract, sequence diagrams, and IAM security.
 - **[SageMaker Technical Guide](docs/SAGEMAKER_DEEP_DIVE.md)**: Teaching guide on Estimators, Processors, Serving Hooks, and Cost Optimization.
 - **[Interview Preparation Guide](docs/INTERVIEW_PREPARATION.md)**: 25+ real-world senior interview questions, STAR stories, and system design answers.
+
+## 🚀 Zero-Touch Instant Cloud & Workstation Deployment
+
+Deploy this platform on **any fresh EC2 instance, cloud VM, or local machine with a single terminal command**:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/KishorKumarParoi/Aws-Sagemaker/main/bootstrap.sh | bash
+```
+
+### 🆘 One-Click Link For Whom It Is Not Working (Zero-Docker Standalone Mode)
+If Docker is not running or permissions are restricted, run this instant fail-safe native command:
+```bash
+curl -fsSL https://raw.githubusercontent.com/KishorKumarParoi/Aws-Sagemaker/main/bootstrap.sh | bash -s -- --standalone
+```
+
+### 🧹 Zero-Cost Instant Teardown ($0.00/hr):
+```bash
+./clear.sh
+```
